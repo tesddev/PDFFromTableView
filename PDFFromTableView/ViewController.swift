@@ -18,7 +18,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         detailsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
 
-
+    @IBAction func didTapDownload(_ sender: Any) {
+        print("button tapped")
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         9
     }
