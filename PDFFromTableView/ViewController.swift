@@ -7,13 +7,26 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet weak var detailsTableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        detailsTableView.delegate = self
+        detailsTableView.dataSource = self
+        detailsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
 
 
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        9
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") ?? UITableViewCell()
+        cell.textLabel?.text = "TESLEEM"
+        return cell
+    }
 }
 
